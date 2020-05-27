@@ -37,6 +37,7 @@ public class Test1 {
 		driver.findElement(By.id("btnLogin")).click();
 		driver.findElement(By.id("welcome")).click();
 		driver.findElement(By.linkText("Logout")).click();
+		//mmm
 	}
 
 	@AfterClass(alwaysRun = true)
