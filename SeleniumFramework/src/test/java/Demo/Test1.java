@@ -19,8 +19,11 @@ public class Test1 {
 	public void setUp() throws Exception {
 
 		String projectPath = System.getProperty("user.dir");
-		System.setProperty("webdriver.chrome.driver",projectPath+"/Driver/chromedriver/chromedriver.exe");
-		driver = new ChromeDriver();
+		//System.setProperty("webdriver.chrome.driver",projectPath+"/Driver/chromedriver/chromedriver.exe");
+		//driver = new ChromeDriver();
+		System.setProperty("webdriver.gecko.driver",projectPath+"/Driver/geckodriver/geckodriver.exe");
+		driver =  new FirefoxDriver();
+		
 		baseUrl = "https://www.google.com/";
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//250 ms
@@ -36,7 +39,8 @@ public class Test1 {
 		driver.findElement(By.id("txtPassword")).sendKeys("admin123");
 		driver.findElement(By.id("btnLogin")).click();
 		driver.findElement(By.id("welcome")).click();
-		driver.findElement(By.linkText("Logout")).click();
+		driver.findElement(By.xpath("//a[contains(text(),'Logout')]"));
+		//driver.findElement(By.linkText("Logout")).click();
 		//mmm
 	}
 
